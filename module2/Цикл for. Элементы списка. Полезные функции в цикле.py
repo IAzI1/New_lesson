@@ -4,13 +4,12 @@ primec = []  # список, содержащий только простые ч
 not_primec = []  # список, содержащий все не простые числа
 
 for n in numbers:
-    is_prime = True
     for i in range(2, int(n ** 0.5 + 1)):
         if n % i == 0:
             not_primec.append(n)
             is_prime = False
             break
-    if is_prime:
+    else:
         primec.append(n)
 
 print(f'Список простых чисел: {primec}')
