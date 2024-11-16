@@ -7,7 +7,6 @@ for n in numbers:
     for i in range(2, int(n ** 0.5 + 1)):
         if n % i == 0:
             not_primec.append(n)
-            is_prime = False
             break
     else:
         primec.append(n)
