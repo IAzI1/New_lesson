@@ -1,18 +1,18 @@
 def count_calls():
-    return calls
+    global calls
+    calls += 1
 
 def string_info(string: str):
-    global calls
-    calls += 1
+    count_calls()
 
     if string .isalpha():
-        return len(string ), string .upper(), string .lower()
+        return len(string), string.upper(), string.lower(),
 
-def is_contains(string , list_to_search):
-    global calls
-    calls += 1
+def is_contains(string, list_to_search):
+    count_calls()
+    string = string.lower()
     for word in list_to_search:
-        if string.lower() in word.lower():
+        if string in word.lower():
             return True
     return False
 
