@@ -4,6 +4,8 @@ primec = []  # список, содержащий только простые ч
 not_primec = []  # список, содержащий все не простые числа
 
 for n in numbers:
+    if n == 1:
+        continue
     for i in range(2, int(n ** 0.5 + 1)):
         if n % i == 0:
             not_primec.append(n)
