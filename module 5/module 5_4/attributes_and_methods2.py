@@ -1,5 +1,5 @@
 class House:
-    def __init__(self, name, number_of_floors ):
+    def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
 
@@ -7,7 +7,8 @@ class House:
         if new_floors > self.number_of_floors or new_floors < 1:
             print('Такого этажа не существует')
         else:
-            [print(x) for x in range(1, new_floors + 1)]
+            for flor in range(1, new_floors + 1):
+                print(flor)
 
     def __len__(self):
         return self.number_of_floors
@@ -16,15 +17,7 @@ class House:
         return f'Название: {self.name}, кол-во этажей {self.number_of_floors}'
 
 
-
-
-h1 = House('ЖК Эльбрус', 10)
-
-h2 = House('ЖК Акация', 20)
-
-print(h1)
-print(h2)
-
-print(len(h1))
-print(len(h2))
-
+h1 = House('ЖК Горский', 18)
+h2 = House('Домик в деревне', 2)
+h1.go_to(5)
+h2.go_to(10)
