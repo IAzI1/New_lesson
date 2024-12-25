@@ -1,7 +1,5 @@
 import random
 
-def multiply(n, multiplier):
-    return n * multiplier
 
 class Animal:
     live = True
@@ -46,7 +44,6 @@ class AquaticAnimal(Animal):
 
     def dive_in(self, dz):
         self._cords[2] -= abs(dz) * self.speed // 2
-
 
 
 class PoisonousAnimal(Animal):
