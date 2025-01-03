@@ -20,10 +20,9 @@ class Shop:
 
     def add(self, *products):
         with open(self.__file_name, 'r+', encoding='utf-8') as file:
-            data = file.readlines()
-            if data:
+            if file:
                 for product in products:
-                    for line in data:
+                    for line in file:
                         check_product = line.split(',')[0].lower()
                         if product.name.lower() == check_product:
                             print(f'Продукт {product.name} уже есть в списке.')
