@@ -4,10 +4,6 @@ import os
 def custom_write(file_name, strings):
     strings_positions = {}
 
-    # with open(file_name, 'w', encoding='utf-8') as file:
-    #     for string in strings:
-    #         file.write(f'{string}\n')
-
     with open(file_name, 'r+', encoding='utf-8') as file:
         count_line = 0
         for string in strings:
