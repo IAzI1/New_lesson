@@ -1,21 +1,21 @@
-def sep_punctuation(words):
-    punctuation = ",.=!?;:-"
-    result = []
-
-    for word in words.split():
-        w = word.lower()
-        for sym in punctuation:
-            if sym in word:
-                w = word.replace(sym, '')
-        result.append(w)
-
-    return result
-
-
 class WordsFinder:
 
     def __init__(self, *file_names):
         self.file_names = file_names
+
+    @staticmethod
+    def sep_punctuation(words):
+        punctuation = ",.=!?;:-"
+        result = []
+
+        for word in words.split():
+            w = word.lower()
+            for sym in punctuation:
+                if sym in word:
+                    w = word.replace(sym, '')
+            result.append(w)
+
+        return result
 
     def get_all_words(self):
 
@@ -26,7 +26,7 @@ class WordsFinder:
                 words_in_file = []
 
                 for line in file:
-                    words_in_file.extend(sep_punctuation(line))
+                    words_in_file.extend(self.sep_punctuation(line))
 
                 all_words[filename] = words_in_file
 
@@ -34,19 +34,24 @@ class WordsFinder:
 
     def find(self, word):
         find_word = {}
-        word = word.lower()
 
         for k, v in self.get_all_words().items():
-            find_word[k] = v.index(word) + 1
+            try:
+                find_word[k] = v.index(word.lower()) + 1
+            except ValueError as err:
+                find_word[k] = 0
+                print(f'Ошибка {err}')
 
         return find_word
 
     def count(self, word):
         count_word = {}
-        word = word.lower()
 
         for k, v in self.get_all_words().items():
-            count_word[k] = v.count(word)
+            try:
+                count_word[k] = v.count(word.lower())
+            except ValueError as err:
+                print(f'Ошибка {err}')
 
         return count_word
 
